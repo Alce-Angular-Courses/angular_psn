@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-psn';
+  title = 'Angular PSN';
+  logo = '../assets/logo.svg';
 }
