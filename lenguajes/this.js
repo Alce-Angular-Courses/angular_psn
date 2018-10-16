@@ -3,21 +3,19 @@
  let o = {
     name : 'Pepe',
     direccion: {calle: '', poblacion: ''},
-    saludar: function() {console.log(
+    saludarLuego: function () {
+      setTimeout(function() {console.log(
         `Hola soy ${this.name}`
-    )}
+    )}, 1000)  
+    },
+    saludarLuegoA:  function () {
+        setTimeout( () => { console.log(
+        `Hola soy ${this.name}`
+    )}, 1000)  
+      },
  }
 
- let f = o.saludar
+let f = o.saludar
  
- setTimeout( o.saludar.bind(o), 1000)
-
- let o6 = {
-    name : 'Pepe',
-    saludar: () => { console.log(
-        `Hola soy ${this.name}`
-    )}
- }
-
- setTimeout( o6.saludar, 1000)
- 
+o.saludarLuego()
+o.saludarLuegoA() 

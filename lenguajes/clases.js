@@ -15,6 +15,11 @@ class Alumno extends Persona {
         super(nombre, edad)
         this.curso = curso
     }
+
+    saludar() {
+        super.saludar()
+        console.log(`Soy del curso ${this.curso} `)
+    }
 }
 
 let p1 = new Persona('Pepe', 33)
