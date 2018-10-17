@@ -1,9 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Muchos Saludos {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" [src]="logo">
+<psn-header></psn-header>
+<div class="container">
+    <psn-menu class="row"></psn-menu>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
 </div>
-
-<router-outlet></router-outlet>
+<psn-footer></psn-footer>
