@@ -1,12 +1,16 @@
 <div class="card">
   <div class="card-header">
-    Header
+    <h4 class="card-title">Saludo</h4>
   </div>
   <div class="card-body">
-    <h4 class="card-title">Title</h4>
-    <p class="card-text">Text</p>
+   <div class="form-group">
+     <label for="nombre">Nombre</label>
+     <input type="text" [(ngModel)]="name" 
+       class="form-control" name="nombre" id="nombre" placeholder="">
+   </div>
+   <button (click)="onBorrar($event)" type="button" class="btn btn-primary">Borrar</button>
   </div>
   <div class="card-footer text-muted">
-    Footer
+    Hola {{ name }}
   </div>
 </div>
