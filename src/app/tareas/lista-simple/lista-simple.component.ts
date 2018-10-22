@@ -23,5 +23,11 @@ export class ListaSimpleComponent implements OnInit {
     this.aTareas.push(Object.assign({}, this.tarea ));
     this.tarea.nombre = '';
     console.dir(this.aTareas);
+    console.table(this.aTareas);
+  }
+
+  onBorrar(i) {
+    console.log(i);
+    this.aTareas.splice(i, 1);
   }
 }

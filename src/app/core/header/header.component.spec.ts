@@ -22,4 +22,7 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it(`should have as title 'angular-psn'`, async(() => {
+    expect(component.title).toEqual('Angular PSN');
+  }));
 });

@@ -5,3 +5,17 @@
 </div>
 <button type="button" class="btn btn-primary"
   (click)="addTarea()">Añadir</button>
+<div class="top5" *ngIf="aTareas.length">
+  <h4>Lista de tareas</h4>
+  <ul class="list-group">
+    <li  class="list-group-item" *ngFor="let item of aTareas; let i = index">
+      <input type="checkbox" name="isCompleted" id="isCompleted" 
+      [(ngModel)]="item.isCompleted">
+      <!-- <span [class.completed]="item.isCompleted">{{item.nombre}}</span> -->
+      <span ngClass="{completed: item.isCompleted}">{{item.nombre}}</span>
+      <span class="trash" (click)='onBorrar(i)'>🗑️</span>
+    </li>
+  </ul>
+  <!-- <p>{{ aTareas | json}}</p> -->
+</div>
+
