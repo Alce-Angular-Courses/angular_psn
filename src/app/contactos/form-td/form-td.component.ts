@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactoIf, Contacto } from 'src/app/models/contacto.modelo';
 
 @Component({
   selector: 'psn-form-td',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormTdComponent implements OnInit {
 
+  contacto: ContactoIf;
   constructor() { }
 
   ngOnInit() {
+    this.contacto = new Contacto();
   }
 
 }
