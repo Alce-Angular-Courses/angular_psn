@@ -1,0 +1,10 @@
+<psn-nueva-tarea (evTarea)="addTarea($event)" ></psn-nueva-tarea>
+
+<div class="top5" *ngIf="aTareas.length">
+  <h4>Lista de tareas</h4>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of aTareas; let i = index">
+      <psn-tarea [tarea]="item"></psn-tarea>
+    </li>
+  </ul>
+</div>
