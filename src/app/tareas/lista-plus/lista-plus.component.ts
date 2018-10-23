@@ -23,6 +23,13 @@ export class ListaPlusComponent implements OnInit {
     this.aTareas.push(Object.assign({}, newTarea ));
   }
 
-  deleteTarea() {}
+  deleteTarea(i) {
+    this.aTareas.splice(i, 1);
+  }
+
+  changeState(i) {
+    this.aTareas[i].isCompleted = !this.aTareas[i].isCompleted;
+    console.log(this.aTareas);
+  }
 
 }

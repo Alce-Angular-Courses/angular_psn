@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TareaIf } from 'src/app/models/tarea.model';
 
 @Component({
@@ -7,18 +7,27 @@ import { TareaIf } from 'src/app/models/tarea.model';
   styleUrls: ['./tarea.component.css']
 })
 export class TareaComponent implements OnInit {
+  @Output() evBorrar: EventEmitter<number>;
+  @Output() evCompletar: EventEmitter<number>;
+
   @Input() tarea: TareaIf;
-  constructor() { }
+  @Input() index: number;
+
+  constructor() {
+    this.evBorrar = new EventEmitter();
+    this.evCompletar = new EventEmitter();
+  }
 
   ngOnInit() {
+    this.tarea = Object.assign({}, this.tarea );
   }
 
-  onBorrar() {
-
+  sendBorrar() {
+    this.evBorrar.next(this.index);
   }
 
-  onChange() {
+  sendChange() {
     console.log(this.tarea);
-
+    this.evCompletar.next(this.index);
   }
 }
