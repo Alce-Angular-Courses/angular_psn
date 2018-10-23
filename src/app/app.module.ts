@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { TareasModule } from './tareas/tareas.module';
 import { AboutModule } from './about/about.module';
+import { ContactosModule } from './contactos/contactos.module';
 
 // the second parameter 'es' is optional
 registerLocaleData(localeEs, 'es');
@@ -24,7 +25,8 @@ registerLocaleData(localeEs, 'es');
     CoreModule,
     HomeModule,
     TareasModule,
-    AboutModule
+    AboutModule,
+    ContactosModule
   ],
   providers: [],
   exports: [],

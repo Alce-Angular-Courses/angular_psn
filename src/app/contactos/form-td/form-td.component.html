@@ -1,0 +1,56 @@
+<h4>Formulario DataDriven o Reactivo</h4>
+<form>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre">
+      <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos">
+        <small id="helpId" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+      <label for="email">Correo</label>
+      <input type="email" class="form-control" id="email">
+      <small id="emailHelpId" class="form-text text-muted"></small>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" id="isOk" >
+        Ests de acuerdo con ....
+      </label>
+    </div>
+    <fieldset >
+      <legend>Datos del curso</legend>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" id="tm" 
+          name="curso" value="Mañana">
+          Mañana
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" id="tt" 
+          name="curso" value="Tarde">
+          Tarde
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" id="tn" 
+          name="curso" value="Noche">
+          Noche
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="curso">Selecciona el tema</label>
+        <select class="form-control" id="curso" name="curso">
+          <option>Angular</option>
+          <option>React</option>
+          <option>NodeJS</option>
+        </select>
+      </div>
+    </fieldset>
+  </form>
