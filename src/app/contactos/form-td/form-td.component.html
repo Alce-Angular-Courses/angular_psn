@@ -1,28 +1,36 @@
 <h4>Formulario TemplateDriven</h4>
-<form>
+<form name="contactForm" #cForm="ngForm" (submit)="onSubmit($event)">
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input type="text" class="form-control" id="nombre" name="nombre"
-      [(ngModel)]="contacto.nombre">
-      <small id="helpId" class="form-text text-muted"></small>
+      #nombre='ngModel' [(ngModel)]="contacto.nombre" required minlength="2">
+
+      <div class="error" [hidden]="nombre.untouched || nombre.valid">
+        <p [hidden]="!nombre.errors?.required">
+          <small id="helpId" class="form-text text-muted">El campo nombre es requerido</small></p>
+        <p [hidden]="!nombre.errors?.minlength">
+          <small id="helpId" class="form-text text-muted"> El nombre debe tener al
+            menos 3 caracteres</small>
+        </p>
+      </div>
     </div>
     <div class="form-group">
         <label for="apellidos">Apellidos</label>
         <input type="text" class="form-control" id="apellidos" name="apellidos"
-        [(ngModel)]="contacto.apellidos">
+        [(ngModel)]="contacto.apellidos" required>
         <small id="helpId" class="form-text text-muted"></small>
     </div>
     <div class="form-group">
       <label for="email">Correo</label>
       <input type="email" class="form-control" id="email" name="email"
-      [(ngModel)]="contacto.email">
+      [(ngModel)]="contacto.email" required>
       <small id="emailHelpId" class="form-text text-muted"></small>
     </div>
     <div class="form-check">
       <label class="form-check-label">
         <input type="checkbox" class="form-check-input" id="isOk" name="isOk"
         [(ngModel)]="contacto.isOk">
-        Ests de acuerdo con ....
+        Estas de acuerdo con ....
       </label>
     </div>
     <fieldset >
@@ -30,33 +38,34 @@
       <div class="form-check">
         <label class="form-check-label">
           <input type="radio" class="form-check-input" id="tm" 
-          name="turno" value="Mañana">
+          name="turno" value="Mañana" [(ngModel)]="contacto.turno">
           Mañana
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
           <input type="radio" class="form-check-input" id="tt" 
-          name="turno" value="Tarde">
+          name="turno" value="Tarde" [(ngModel)]="contacto.turno">
           Tarde
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
           <input type="radio" class="form-check-input" id="tn" 
-          name="turno" value="Noche">
+          name="turno" value="Noche" [(ngModel)]="contacto.turno">
           Noche
         </label>
       </div>
       <div class="form-group">
         <label for="curso">Selecciona el tema</label>
-        <select class="form-control" id="curso" name="curso">
-          <option value="ng001">Angular</option>
-          <option value="re001">React</option>
-          <option value="nd001">NodeJS</option>
+        <select class="form-control" id="curso" name="curso" 
+          [(ngModel)]="contacto.curso">
+          <option *ngFor="let curso of aCursos"
+          [ngValue]="curso">{{curso.nombre}}</option>
         </select>
       </div>
     </fieldset>
+    <button type="submit" class="btn btn-primary" [disabled]="cForm.invalid">Enviar</button>
   </form>
   <div>
     {{ contacto | json }}
