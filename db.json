@@ -1,0 +1,18 @@
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "users": [
+    { "id": 1,"name": "Pepe Perez", "email": "pperez@example.com" },
+    { "id": 2,"name": "Ramon Lopez", "email": "rl@example.com" },
+    { "id": 1,"name": "Juan Ramirez", "email": "jr@example.com" }
+  ],
+  "users2": [
+    { "id": 1,"name": "Pepe Perez", "email": "pperez@example.com" },
+    { "id": 2,"name": "Ramon Lopez", "email": "rl@example.com" },
+    { "id": 3,"name": "Juan Ramirez", "email": "jr@example.com" }
+  ]
+}
