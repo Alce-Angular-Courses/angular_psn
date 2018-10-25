@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { FormsModule } from '@angular/forms';
+import { UsuariosComponent } from './usuarios.component';
 
 
 @NgModule({
@@ -12,6 +13,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     UsuariosRoutingModule
   ],
-  declarations: []
+  declarations: [
+    UsuariosComponent
+  ]
 })
 export class UsuariosModule { }

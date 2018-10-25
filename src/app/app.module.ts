@@ -8,19 +8,14 @@ import { registerLocaleData} from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
-import { TareasModule } from './tareas/tareas.module';
 import { AboutModule } from './about/about.module';
-import { ContactosModule } from './contactos/contactos.module';
-import { UsuariosModule } from './usuarios/usuarios.module';
-import { UsuariosComponent } from './usuarios/usuarios.component';
 
 // the second parameter 'es' is optional
 registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UsuariosComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +24,7 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     CoreModule,
     HomeModule,
-    TareasModule,
-    AboutModule,
-    ContactosModule,
-    UsuariosModule
+    AboutModule
   ],
   providers: [],
   exports: [],
