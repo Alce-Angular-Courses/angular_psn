@@ -1,0 +1,9 @@
+<p>
+  usuarios works!
+</p>
+<input type="text" name="idUser" id="idUser" placeholder="ID del Usuario" 
+    [(ngModel)]="idUser">
+<button type="button" class="btn btn-primary" (click)="onMostrar()">Mostrar</button>
+<div *ngIf="aUsuarios.length">
+    {{ aUsuarios | json}}
+</div>
