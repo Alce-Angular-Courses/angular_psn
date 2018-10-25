@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'psn-usuarios',
@@ -9,31 +8,60 @@ import { environment } from 'src/environments/environment';
 })
 export class UsuariosComponent implements OnInit {
 
+  user: any;
   aUsuarios: Array<any>;
-  url: string;
   idUser: number;
 
-  constructor(public http: HttpClient) { }
+  constructor(public usuariosSrv: UsuariosService) { }
 
   ngOnInit() {
     this.aUsuarios = [];
+    this.user = {name: '', email: ''};
   }
 
   onMostrar () {
     this.aUsuarios = [];
-    this.url = environment.apiUsers;
     if (this.idUser) {
-      this.url += `/${this.idUser}`;
-      console.log(this.url);
+      this.usuariosSrv.getUser(this.idUser).then(
+        (data) => { this.aUsuarios.push(data); }
+      );
+    } else {
+      this.usuariosSrv.getUsers().then(
+        (data: any) => {this.aUsuarios = data; }
+      );
     }
-    this.http.get(this.url).toPromise().then(
-      (data: any) => {
-        if (Array.isArray(data)) {
-           this.aUsuarios = data;
-        } else {
-          this.aUsuarios.push(data);
-        }
+  }
+
+  onAdd() {
+    this.usuariosSrv.postUser(this.user).then(
+      (data) => {
+        console.log(data);
+        this.idUser = null;
+        this.onMostrar();
       }
     );
   }
+
+  onModificar() {
+    if (!this.user) { return; }
+    this.usuariosSrv.patchUser(this.idUser, this.user).then(
+      (data) => {
+        console.log(data);
+        this.idUser = null;
+        this.onMostrar();
+      }
+    );
+  }
+
+  onBorrar() {
+    if (!this.user) { return; }
+    this.usuariosSrv.deleteUser(this.idUser).then(
+      (data) => {
+        console.log(data);
+        this.idUser = null;
+        this.onMostrar();
+      }
+    );
+  }
+
 }

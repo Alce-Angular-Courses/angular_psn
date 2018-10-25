@@ -4,6 +4,26 @@
 <input type="text" name="idUser" id="idUser" placeholder="ID del Usuario" 
     [(ngModel)]="idUser">
 <button type="button" class="btn btn-primary" (click)="onMostrar()">Mostrar</button>
+
+<div>
+    <h4>Cambios</h4>
+    <div>
+        <input type="text" name="name" id="name" 
+        placeholder="Nombre del usuario" [(ngModel)] = 'user.name'>
+    </div>
+    <div>
+        <input type="email" name="email" id="email" 
+        placeholder="Correo del usuario" [(ngModel)] = 'user.email'>
+    </div>
+    <button type="button" class="btn btn-primary" 
+    (click)="onAdd()">Añadir</button>
+    <button type="button" class="btn btn-primary" 
+    (click)="onModificar()">Modificar</button>
+    <button type="button" class="btn btn-primary" 
+    (click)="onBorrar()">Borrar</button>
+
+</div>
+
 <div *ngIf="aUsuarios.length">
     {{ aUsuarios | json}}
 </div>
